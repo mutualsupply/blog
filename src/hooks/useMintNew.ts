@@ -13,9 +13,12 @@ export function useMintNew({mintNewConfig}: any) {
     
     const mintingConfig = mintNewConfig ? mintNewConfig : null
 
+
     const validMint = !mintingConfig || !mintNewConfig.tokenRendererInit.tokenURI ? false : true
 
     console.log("valid mint: ", validMint)
+
+    console.log("address of 1155press we are minting : ", ap1155Press)
 
     const { config, error } = usePrepareContractWrite({
         address: ap1155Press,
