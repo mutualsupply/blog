@@ -15,8 +15,7 @@ const VideoPlayerSimple: React.FC<Props> = ({ videoPath, thumnbnailURL }) => {
     
         if (url.startsWith(urlPattern)) {
             const cid = url.substring(urlPattern.length);
-            // return newFormat + cid;
-            return "ipfs://bafybeifstyz4uux4msxihoxgfwd3ygtchvia67ewkdujzmd5bkicyjx22q";
+            return newFormat + cid;
         } else {
             throw new Error("Invalid URL format");
         }
