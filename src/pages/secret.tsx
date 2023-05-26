@@ -7,7 +7,7 @@ const mutualdesign_eth = "0xEfFE6b3DBA2E39aA1085f88a93AB8563Ba45bAa6"
 const losingmyego_eth = "0xB00A93fF31217E49c3674e05b525f239a85bb78f"
 const salief_eth = "0x784FA0c3C12aEe8f571EF3c91408cb2219B431dC"
 
-//
+// //
 
 function Secret() {
 
