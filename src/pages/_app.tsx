@@ -38,7 +38,7 @@ const livepeerClient = createReactClient({
 
 // SEO
 const defaultTitle = "mutual"
-const defaultDescription = "MUTUAL is a collective currently researching design culture inside the emerging internet."
+const defaultDescription = "researching design culture inside the emerging internet"
 const defaultOGURL = "blog.mutual.supply"
 const defaultOGImage = "/mutual-blog-opengraph.png";
 const favicon = "/seo/apple-silver.png"
