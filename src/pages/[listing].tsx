@@ -51,7 +51,6 @@ const ListingPage: NextPage = () => {
       return null;
     }
   };
-  
 
   const collectionToMintFrom = parsed && parsed[listingId]?.contract?.address;
   const tokenIdToMint = parsed && parsed[listingId]?.tokenId;
@@ -94,7 +93,6 @@ const ListingPage: NextPage = () => {
     }
   };
 
-
   const collectButtonContent =
     numMinted > 0
       ? "Collected!"
@@ -118,8 +116,6 @@ const ListingPage: NextPage = () => {
   const author = tokenCreator ? tokenCreator : null;
   const resolvedAuthor = useENSResolver({ address: author });
   const description = parsed && parsed[listingId]?.description;
-
-  console.log("descrition: ", description)
 
   const publicationDate = tokenCreated ? convertDate(tokenCreated) : "mm/dd/yy"
 
@@ -167,8 +163,8 @@ const ListingPage: NextPage = () => {
             &nbsp;{"– " + publicationDate}
           </div>
           <div className="font-[helvetica] text-[14px] mt-[19px] mb-[60px] sm:mb-[19px] font-normal">
-              {description}
-            </div>             
+            {description}
+          </div>             
           {ipfsPath && <MarkdownViewer ipfsPath={ipfsPath} />}
           <ListingInfo
             collectionAddress={process.env.NEXT_PUBLIC_AP_1155_CONTRACT}
