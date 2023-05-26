@@ -17,6 +17,8 @@ export function useMintWithData({mintWithDataConfig, tokenToCurate}: any) {
     const ap721Press = process.env.NEXT_PUBLIC_AP_721_CURATION_CONTRACT ? process.env.NEXT_PUBLIC_AP_721_CURATION_CONTRACT : ""
     const ap1155Press = process.env.NEXT_PUBLIC_AP_1155_CONTRACT ? process.env.NEXT_PUBLIC_AP_1155_CONTRACT : ""
     
+    console.log("address of 721 we are minting off : ", ap721Press)
+
     const mintingConfig = mintWithDataConfig ? mintWithDataConfig : null
 
     const validMint = !mintingConfig || !tokenToCurate || !address ? false : true
@@ -26,6 +28,8 @@ export function useMintWithData({mintWithDataConfig, tokenToCurate}: any) {
     console.log("valid mint: ", validMint)
 
     console.log("mintingConfig", mintingConfig)
+
+
 
     // mintWithData contract call flow
     // currently only allows for minting one at a time

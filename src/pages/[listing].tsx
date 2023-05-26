@@ -34,22 +34,13 @@ const ListingPage: NextPage = () => {
       if (!response.ok) {
         throw new Error("Failed to fetch media");
       }
-      const buffer = await response.arrayBuffer();
-      const uint8Array = new Uint8Array(buffer);
-      // Check for MP4 format
-      const magicNumber = uint8Array.slice(0, 8);
-      const mp4Signature = [0x00, 0x00, 0x00, 0x66, 0x74, 0x79, 0x70];
-      const isMp4 =
-        magicNumber
-          .slice(0, 3)
-          .every((value, index) => value === mp4Signature[index]) &&
-        magicNumber
-          .slice(4, 8)
-          .every((value, index) => value === mp4Signature[index + 3]);
-      if (isMp4) {
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('video/mp4')) {
         return "video";
       }
       // Check for markdown
+      const buffer = await response.arrayBuffer();
+      const uint8Array = new Uint8Array(buffer);
       const textDecoder = new TextDecoder();
       const textContent = textDecoder.decode(uint8Array);
       if (hasMarkdownPattern(textContent)) {
@@ -60,6 +51,7 @@ const ListingPage: NextPage = () => {
       return null;
     }
   };
+  
 
   const collectionToMintFrom = parsed && parsed[listingId]?.contract?.address;
   const tokenIdToMint = parsed && parsed[listingId]?.tokenId;
@@ -127,6 +119,8 @@ const ListingPage: NextPage = () => {
   const resolvedAuthor = useENSResolver({ address: author });
   const description = parsed && parsed[listingId]?.description;
 
+  console.log("descrition: ", description)
+
   const publicationDate = tokenCreated ? convertDate(tokenCreated) : "mm/dd/yy"
 
     const [mediaType, setMediaType] = useState(null);
@@ -172,6 +166,9 @@ const ListingPage: NextPage = () => {
             </a>
             &nbsp;{"– " + publicationDate}
           </div>
+          <div className="font-[helvetica] text-[14px] mt-[19px] mb-[60px] sm:mb-[19px] font-normal">
+              {description}
+            </div>             
           {ipfsPath && <MarkdownViewer ipfsPath={ipfsPath} />}
           <ListingInfo
             collectionAddress={process.env.NEXT_PUBLIC_AP_1155_CONTRACT}
@@ -205,6 +202,7 @@ const ListingPage: NextPage = () => {
       </div>
     );
   } else if (mediaType === "video") {
+    console.log("this shit is video", mediaType)
     return (
       <div className="text-[14px] flex flex-col sm:items-center min-h-[100vh] pt-[77px] sm:pt-10 pb-[90px] sm:pb-[108px] h-full w-full sm:justify-center">
         <div className="sm:pt-[25px] w-full">
@@ -227,7 +225,7 @@ const ListingPage: NextPage = () => {
                   : "unknown"}
                 </a>
                 &nbsp;{"– " + publicationDate}
-              </div>
+              </div>         
               <div className="font-[helvetica] text-[14px] mt-[19px] mb-[60px] sm:mb-[19px] font-normal">
                 {description}
               </div>

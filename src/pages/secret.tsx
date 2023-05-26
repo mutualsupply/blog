@@ -23,7 +23,7 @@ function Secret() {
         tokenRenderer: "0x4E1AD7A0D2e25Fb80AE8B18aFc90243C07f4aED9",
         tokenRendererInit: {
             // tokenURI: tokenURI ? tokenURI : ""
-            tokenURI: "ipfs://bafkreiaajufezz42f5qefmypksnz5p3mgjcg34l7rvjaelwzm34gqv5wg4"
+            tokenURI: "ipfs://bafkreic5feo5bsxw3ugas3p3sczkg6smcx5xlsppg2cnjkgsuvxtoujisi"
         },
         fundsRecipient: mutualdesign_eth,
         royaltyBPS: "0",
@@ -45,7 +45,7 @@ function Secret() {
       
       const [mintWithDataConfig, setMintWithDataConfig] = useState({
         // curatedAddress not calculated in state
-        selectedTokenId: "1",
+        selectedTokenId: "2",
         // curator address not calculated in state
         curatorTargetType: 4, // (1 = nft contract, 3 = curation contract, 4 = nft item)
         sortOrder: 0,
