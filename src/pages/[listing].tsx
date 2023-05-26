@@ -225,10 +225,7 @@ const ListingPage: NextPage = () => {
                   : "unknown"}
                 </a>
                 &nbsp;{"– " + publicationDate}
-              </div>
-              <div className="font-[helvetica] text-[14px] mt-[19px] mb-[60px] sm:mb-[19px] font-normal">
-                {description}
-              </div>              
+              </div>         
               <div className="font-[helvetica] text-[14px] mt-[19px] mb-[60px] sm:mb-[19px] font-normal">
                 {description}
               </div>
