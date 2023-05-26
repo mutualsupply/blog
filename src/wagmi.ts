@@ -21,7 +21,7 @@ const { provider, chains } = configureChains(
 
 export const client = createClient(
 	getDefaultClient({
-		appName: 'seeknoevil',
+		appName: 'mutual',
 		autoConnect: true,
 		provider,
 		chains

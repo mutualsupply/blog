@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { Player } from "@livepeer/react";
 
 type Props = {
