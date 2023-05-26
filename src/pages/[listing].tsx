@@ -140,7 +140,7 @@ const ListingPage: NextPage = () => {
 
   if (!mediaType) {
     return (
-      <div className="text-[14px] flex flex-row flex-wrap  bg-[#FFFFFF] min-h-[100vh] pt-10 pb-[90px] sm:pb-[108px] h-full w-full justify-center sm:justify-start ">
+      <div className=" text-[14px] flex flex-row flex-wrap  min-h-[100vh] pt-10 pb-[90px] sm:pb-[108px] h-full w-full justify-center sm:justify-start ">
         <div className="pt-[80px] sm:pt-[10px] sm:px-[16px]">
           loading
           <span className="ml-[6px] dot-animation">
@@ -153,7 +153,7 @@ const ListingPage: NextPage = () => {
     );
   } else if (mediaType === "markdown") {
     return (
-      <div className="text-[14px] flex flex-row flex-wrap  bg-[#FFFFFF] min-h-[100vh] pt-10 pb-[90px] sm:pb-[108px] h-full w-full justify-center ">
+      <div className=" text-[14px] flex flex-row flex-wrap  min-h-[100vh] pt-10 pb-[90px] sm:pb-[108px] h-full w-full justify-center ">
         <div className=" w-[360px] sm:w-[500px] md:w-[625px] pt-[80px] sm:pt-[110px]">
           <div className="font-[helvetica] flex flex-row w-full justify-start text-[24px] font-normal">
             {title}
@@ -206,7 +206,7 @@ const ListingPage: NextPage = () => {
     );
   } else if (mediaType === "video") {
     return (
-      <div className="text-[14px] flex flex-col sm:items-center bg-[#FFFFFF] min-h-[100vh] pt-[77px] sm:pt-10 pb-[90px] sm:pb-[108px] h-full w-full sm:justify-center">
+      <div className="text-[14px] flex flex-col sm:items-center min-h-[100vh] pt-[77px] sm:pt-10 pb-[90px] sm:pb-[108px] h-full w-full sm:justify-center">
         <div className="sm:pt-[25px] w-full">
           <VideoPlayerSimple videoPath={ipfsPath} thumnbnailURL={imageURL} />
           <div className="flex flex-col sm:flex-row  w-full sm:justify-between mt-4 sm:mt-0">
@@ -220,7 +220,11 @@ const ListingPage: NextPage = () => {
                   href={`https://goerli.etherscan.io/address/${author}`}
                   className="font-[helvetica] hover:underline"
                 >
-                  {shortenAddress(author)}
+                {!!author
+                  ? !!resolvedAuthor
+                    ? resolvedAuthor
+                    : shortenAddress(author)
+                  : "unknown"}
                 </a>
                 &nbsp;{"– " + publicationDate}
               </div>

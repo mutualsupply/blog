@@ -11,17 +11,28 @@
 }
 
 @font-face {
-    font-family: 'IBMPlexMonoLight';
+    font-family: 'IBMPlexMonoRegular';
     src: local(''), url('../public/fonts/ibm-plex-mono-3-cdnfonts/IBMPlexMono-Regular.ttf') format('woff');
     font-weight: normal;
     font-size: normal;
 }
 
+@font-face {
+  font-family: 'IBMPlexMonoLight';
+  src: local(''), url('../public/fonts/ibm-plex-mono-3-cdnfonts/IBMPlexMono-Light.ttf') format('woff');
+  font-weight: normal;
+  font-size: normal;
+}
+
 
 * {
-    font-family: 'Times New Roman', Times, serif;
-    line-height: 24.5px;
-    letter-spacing: 0.3px;
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 24.5px;
+  letter-spacing: 0.3px;
+}
+
+html {
+  background-color: #E3EDF3;  
 }
 
 @media screen and (min-width: 450px) {
