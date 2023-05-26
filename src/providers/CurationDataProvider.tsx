@@ -56,7 +56,7 @@ export function CurationDataProvider({ children, curationContract }: CurationDat
     const parseMetadata = async (metadata: any) => {
       let parsedNFTs = {}
       for (const [key, value] of Object.entries(metadata)) {
-        // if (key < 25) continue // temproary fix because alchemy doesnt pick up burned tokens well
+        if (key < 2) continue // temproary fix because alchemy doesnt pick up burned tokens well
         if (value.rawMetadata.properties.curationTargetType == "1") {
           // hardcode tokenId = 1 if the curation type is an nft contract
           let nftData = await alchemySepolia.nft.getNftMetadata(value.rawMetadata.properties.contract, "1")   

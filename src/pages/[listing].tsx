@@ -205,6 +205,7 @@ const ListingPage: NextPage = () => {
       </div>
     );
   } else if (mediaType === "video") {
+    console.log("this shit is video", mediaType)
     return (
       <div className="text-[14px] flex flex-col sm:items-center min-h-[100vh] pt-[77px] sm:pt-10 pb-[90px] sm:pb-[108px] h-full w-full sm:justify-center">
         <div className="sm:pt-[25px] w-full">

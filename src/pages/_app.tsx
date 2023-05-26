@@ -23,7 +23,8 @@ const channel = process.env.NEXT_PUBLIC_AP_721_CURATION_CONTRACT;
 
 const channelAdmin_1 = "0xEfFE6b3DBA2E39aA1085f88a93AB8563Ba45bAa6"
 const channelAdmin_2 = "0xB00A93fF31217E49c3674e05b525f239a85bb78f"
-const channelAdmin_3 = "0x784FA0c3C12aEe8f571EF3c91408cb2219B431dC"
+const channelAdmin_3 = "0x153D2A196dc8f1F6b9Aa87241864B3e4d4FEc170"
+// const channelAdmin_3 = "0x784FA0c3C12aEe8f571EF3c91408cb2219B431dC"
 
 const livePeerAPIKey = process.env.NEXT_PUBLIC_STUDIO_API_KEY
 if (!livePeerAPIKey) {
