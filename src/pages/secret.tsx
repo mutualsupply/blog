@@ -67,7 +67,7 @@ function Secret() {
         mintWaitLoading   
       } = useMintWithData({
         mintWithDataConfig: mintWithDataConfig,
-        tokenToCurate: "2"
+        tokenToCurate: "1"
       })        
 
 

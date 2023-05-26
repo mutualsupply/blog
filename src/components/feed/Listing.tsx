@@ -16,6 +16,8 @@ export const Listing = ({index,  metadata, collection}: any) => {
     }        
     const publicationDate = metadata && convertDate(metadata?.timeLastUpdated)    
 
+    console.log("metadata", metadata)
+
     return (
         <>
         {!metadata || !collection ? (
