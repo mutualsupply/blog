@@ -23,7 +23,7 @@ function Secret() {
         tokenRenderer: "0x4E1AD7A0D2e25Fb80AE8B18aFc90243C07f4aED9",
         tokenRendererInit: {
             // tokenURI: tokenURI ? tokenURI : ""
-            tokenURI: "ipfs://{metadata.sjon tbd}"
+            tokenURI: "ipfs://bafkreiaajufezz42f5qefmypksnz5p3mgjcg34l7rvjaelwzm34gqv5wg4"
         },
         fundsRecipient: mutualdesign_eth,
         royaltyBPS: "0",

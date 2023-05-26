@@ -3,6 +3,7 @@ import useMintWithData from '../hooks/useMintWithData';
 import { useState } from 'react';
 import CreateChannelForm from '../components/new/CreateChannelForm';
 import CreateCollectionForm from '../components/new/CreateCollectionForm';
+import React from 'react';
 
 
 function New() {
