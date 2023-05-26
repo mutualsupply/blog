@@ -31,7 +31,7 @@ export const Connect = () => {
     setShowOptions(!showOptions);
   };
 
-  const isAdmin = userAddress === admin1 || userAddress === admin2 || userAddress === admin3
+  const isAdmin = userAddress === admin1 || userAddress === admin2 || userAddress === admin3;
 
   return (
     <ConnectKitButton.Custom>
