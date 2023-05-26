@@ -42,9 +42,8 @@ const livepeerClient = createReactClient({
 const defaultTitle = "MUTUAL BLOG"
 const defaultDescription = "Thoughts from a collective researching design culture inside the emerging internet."
 const defaultOGURL = "blog.mutual.supply"
-const defaultOGImage = "/mutual-blog-opengraph.png";
-// const favicon = "/seo/apple-silver.png"
-const favicon = "/mutual-favicon-32.png"
+const defaultOGImage = "/seo/mutual-blog-opengraph.png";
+const favicon = "/seo/mutual-favicon-32.png"
 
 // import mutualLogo from "../../public/icons/logo-mutual_blue.svg"
 
@@ -60,12 +59,8 @@ function App({ Component, pageProps }: AppProps) {
               <LivepeerConfig client={livepeerClient}>
                 <NextHead>
                   <title>{defaultTitle}</title>                  
-                  <meta name="description" content={defaultDescription} />
-                  
-                  <link rel="icon" type="image/png" sizes="16x16" href="/mutual-favicon-32.png" />
-                  <link rel="icon" type="image/png" sizes="32x32" href="/mutual-favicon-32.png" />
-                  <link rel="icon" type="image/png" sizes="48x48" href="/mutual-favicon-32.png" />
-
+                  <meta name="description" content={defaultDescription} />        
+                  <link rel="icon" type="image/png" sizes="32x32" href={favicon} />
                   <meta property="og:url" content={defaultOGURL} />
                   <meta property="og:title" content={defaultTitle} />
                   <meta property="og:description" content={defaultDescription} />
