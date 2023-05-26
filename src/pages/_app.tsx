@@ -23,8 +23,6 @@ const channelAdmin_1 = "0xEfFE6b3DBA2E39aA1085f88a93AB8563Ba45bAa6"
 const channelAdmin_2 = "0xB00A93fF31217E49c3674e05b525f239a85bb78f"
 const channelAdmin_3 = "0x784FA0c3C12aEe8f571EF3c91408cb2219B431dC"
 
-const favicon = "../public/favicon.png"
-
 const livePeerAPIKey = process.env.NEXT_PUBLIC_STUDIO_API_KEY
 if (!livePeerAPIKey) {
   throw new Error("Livepeer API key not found");
@@ -37,7 +35,13 @@ const livepeerClient = createReactClient({
   }),
 });
 
-console.log("livepeer client", livepeerClient)
+
+// SEO
+const defaultTitle = "mutual"
+const defaultDescription = "MUTUAL is a collective currently researching design culture inside the emerging internet."
+const defaultOGURL = "blog.mutual.supply"
+const defaultOGImage = "/mutual-blog-opengraph.png";
+const favicon = "/seo/apple-silver.png"
 
 function App({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = React.useState(false);
@@ -50,8 +54,24 @@ function App({ Component, pageProps }: AppProps) {
             <ENSResolverProvider>
               <LivepeerConfig client={livepeerClient}>
                 <NextHead>
-                  <title>mutual</title>
-                  <link rel="icon" type="image/png" sizes="24x24" href={favicon} />
+                  <title>{defaultTitle}</title>                  
+                  <meta name="description" content={defaultDescription} />
+                  <link rel="icon" type="image/png" sizes="32x32" href={favicon} />
+                  <meta property="og:url" content={defaultOGURL} />
+                  <meta property="og:title" content={defaultTitle} />
+                  <meta property="og:description" content={defaultDescription} />
+                  <meta name="twitter:creator" content={`@mutualdesign`} />
+                  <meta name="twitter:site" content={defaultOGURL} />
+                  <meta name="twitter:card" content="summary_large_image" />
+                  <meta name="twitter:image" content={defaultOGImage} />
+                  <meta property="og:image" content={defaultOGImage} />
+                  <meta property="og:image:width" content="2058" />
+                  <meta property="og:image:height" content="1080" />                
+
+
+
+
+
                 </NextHead>
                 <Header />
                 <Footer />
