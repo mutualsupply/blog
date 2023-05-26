@@ -19,8 +19,9 @@ import {
 // determines what curation contract will be used for blog context
 const channel = process.env.NEXT_PUBLIC_AP_721_CURATION_CONTRACT;
 
-const channelAdmin_1 = "0x153D2A196dc8f1F6b9Aa87241864B3e4d4FEc170"
-const channelAdmin_2 = "0x4C53C6D546C9E38db56040Ab505460A9187A5281"
+const channelAdmin_1 = "0xEfFE6b3DBA2E39aA1085f88a93AB8563Ba45bAa6"
+const channelAdmin_2 = "0xB00A93fF31217E49c3674e05b525f239a85bb78f"
+const channelAdmin_3 = "0x784FA0c3C12aEe8f571EF3c91408cb2219B431dC"
 
 const favicon = "../public/favicon.png"
 
@@ -45,7 +46,7 @@ function App({ Component, pageProps }: AppProps) {
     <WagmiConfig client={client}>
       <ConnectKitProvider>
         <CurationDataProvider curationContract={channel} >
-          <ChannelAdminProvider channelAdmin1={channelAdmin_1} channelAdmin2={channelAdmin_2}>
+          <ChannelAdminProvider channelAdmin1={channelAdmin_1} channelAdmin2={channelAdmin_2} channelAdmin3={channelAdmin_3}>
             <ENSResolverProvider>
               <LivepeerConfig client={livepeerClient}>
                 <NextHead>

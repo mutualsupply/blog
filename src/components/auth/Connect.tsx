@@ -6,6 +6,7 @@ import { shortenAddress } from '../../utils/shortenAddress';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useChannelAdmins } from '../../providers/ChannelAdminProvider';
+import useENSResolver from "../../hooks/useENSResolver";
 
 export const Connect = () => {
   const { address, logout } = useAuth();
@@ -13,6 +14,9 @@ export const Connect = () => {
   const { admin1, admin2 } = useChannelAdmins();
   const [showDisconnect, setShowDisonnect] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
+
+  const user = address ? address : null;
+  const resolvedUser = useENSResolver({ address: user });  
 
   const handleShowDisconnect = () => {
     setShowDisonnect(!showDisconnect);
@@ -35,42 +39,42 @@ export const Connect = () => {
         return (
           <>
             {!isConnected ? (
-              <button className="hover:font-bold" onClick={show}>
+              <button className="text-[14px] font-IBMPlexMonoRegular flex justify-center items-center border-[#0194FF] text-[#0194FF] hover:text-black " onClick={show}>
                 {"connect"}
               </button>
             ) : (
-              <div className="flex flex-row flex-wrap border-black">
+              <div className="flex flex-row flex-wrap">
                 {showDisconnect ? (
                   <div className="w-full flex flex-row justify-end">
-                    <button className="hover:font-bold w-fit flex flex-row pb-2" onClick={handleLogout}>
+                    <button className="text-[14px] font-IBMPlexMonoRegular text-[#0194FF] hover:text-black w-fit flex flex-row pb-2" onClick={handleLogout}>
                       {"disconnect"}
                     </button>
                   </div>
                 ) : (
                   <></>
                 )}
-                <div className="flex flex-row w-full justify-end space-x-2">
+                <div className="text-[#0194FF] flex flex-row w-full justify-end space-x-2">
                   {isAdmin && (
                     <>
                       {showOptions && (
                         <>
-                          <Link href="/create" className="hover:font-bold">
+                          <Link href="/create" className="text-[14px] font-IBMPlexMonoRegular hover:text-black">
                             create
                           </Link>
-                          <Link href="/manage" className="hover:font-bold">
+                          <Link href="/manage" className="text-[14px] font-IBMPlexMonoRegular hover:text-black">
                             manage
                           </Link>
                         </>
                       )}
                       &nbsp;
-                      <button className="hover:font-bold" onClick={toggleOptions}>
+                      <button className="text-[14px] font-IBMPlexMonoRegular hover:text-black" onClick={toggleOptions}>
                         {showOptions ? '–' : '+'}
                       </button>
                       &nbsp;
                     </>
                   )}
-                  <button className="text-black w-fit flex flex-row hover:font-bold" onClick={handleShowDisconnect}>
-                    {ensName ? ensName : shortenAddress(address)}
+                  <button className="text-[14px] font-IBMPlexMonoRegular text-[#0194FF] w-fit flex flex-row hover:text-black" onClick={handleShowDisconnect}>
+                    {resolvedUser ? resolvedUser : shortenAddress(user)}
                   </button>
                 </div>
               </div>

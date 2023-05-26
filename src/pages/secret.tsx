@@ -3,29 +3,29 @@ import useMintNew from '../hooks/useMintNew';
 import useMintWithData from '../hooks/useMintWithData';
 import { useState } from 'react';
 
-const junghwan_eth = "0x4C53C6D546C9E38db56040Ab505460A9187A5281"
-const tranqui_eth = "0x806164c929Ad3A6f4bd70c2370b3Ef36c64dEaa8"
-const devtest_eth = "0xF2365A26f766109b5322B0f90d71c21bF32bda04"
+const mutualdesign_eth = "0xEfFE6b3DBA2E39aA1085f88a93AB8563Ba45bAa6"
+const losingmyego_eth = "0xB00A93fF31217E49c3674e05b525f239a85bb78f"
+const salief_eth = "0x784FA0c3C12aEe8f571EF3c91408cb2219B431dC"
 
 function Secret() {
 
     const [mintNewConfig, setMintNewConfig] = useState({
-        recipients: [junghwan_eth, tranqui_eth, devtest_eth],
+        recipients: [mutualdesign_eth, losingmyego_eth, salief_eth],
         quantity: "1",
         tokenLogic: "0x7218E2714d1C29FBda6E528F6b65E1216Cd2a73A",
         tokenLogicInit: {
-            initialAdmin: "0x153D2A196dc8f1F6b9Aa87241864B3e4d4FEc170",
+            initialAdmin: mutualdesign_eth,
             mintExistingStartTime: "0",
             mintExistingPrice: "0"
         },
         tokenRenderer: "0x4E1AD7A0D2e25Fb80AE8B18aFc90243C07f4aED9",
         tokenRendererInit: {
             // tokenURI: tokenURI ? tokenURI : ""
-            tokenURI: "ipfs://bafkreidnryk3kzqhderb6frvcveo53ix5yv5izn5ikce7364yqtuvaamfu"
+            tokenURI: "ipfs://{metadata.sjon tbd}"
         },
-        fundsRecipient: "0x153D2A196dc8f1F6b9Aa87241864B3e4d4FEc170",
+        fundsRecipient: mutualdesign_eth,
         royaltyBPS: "0",
-        primarySaleFeeRecipient: "0x153D2A196dc8f1F6b9Aa87241864B3e4d4FEc170",
+        primarySaleFeeRecipient: mutualdesign_eth,
         primarySaleFeeBPS: "0",
         soulbound: "false"
     })    
@@ -43,7 +43,7 @@ function Secret() {
       
       const [mintWithDataConfig, setMintWithDataConfig] = useState({
         // curatedAddress not calculated in state
-        selectedTokenId: "2",
+        selectedTokenId: "1",
         // curator address not calculated in state
         curatorTargetType: 4, // (1 = nft contract, 3 = curation contract, 4 = nft item)
         sortOrder: 0,
