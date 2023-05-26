@@ -45,8 +45,6 @@ const defaultOGURL = "blog.mutual.supply"
 const defaultOGImage = "/seo/mutual-blog-opengraph.png";
 const favicon = "/seo/mutual-favicon-32.png"
 
-// import mutualLogo from "../../public/icons/logo-mutual_blue.svg"
-
 function App({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
@@ -69,8 +67,8 @@ function App({ Component, pageProps }: AppProps) {
                   <meta name="twitter:card" content="summary_large_image" />
                   <meta name="twitter:image" content={defaultOGImage} />
                   <meta property="og:image" content={defaultOGImage} />
-                  <meta property="og:image:width" content="2058" />
-                  <meta property="og:image:height" content="1080" />                
+                  <meta property="og:image:width" content="1048" />
+                  <meta property="og:image:height" content="540" />                
                 </NextHead>
                 <Header />
                 <Footer />
