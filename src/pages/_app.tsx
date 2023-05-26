@@ -15,6 +15,8 @@ import {
   createReactClient,
   studioProvider,
 } from '@livepeer/react';
+// @ts-ignore
+// import favicon from "../public/seo/pink.png"
 
 // determines what curation contract will be used for blog context
 const channel = process.env.NEXT_PUBLIC_AP_721_CURATION_CONTRACT;
@@ -37,11 +39,14 @@ const livepeerClient = createReactClient({
 
 
 // SEO
-const defaultTitle = "mutual"
-const defaultDescription = "researching design culture inside the emerging internet"
+const defaultTitle = "MUTUAL BLOG"
+const defaultDescription = "Thoughts from a collective researching design culture inside the emerging internet."
 const defaultOGURL = "blog.mutual.supply"
 const defaultOGImage = "/mutual-blog-opengraph.png";
-const favicon = "/seo/apple-silver.png"
+// const favicon = "/seo/apple-silver.png"
+const favicon = "/mutual-favicon-32.png"
+
+// import mutualLogo from "../../public/icons/logo-mutual_blue.svg"
 
 function App({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = React.useState(false);
@@ -56,7 +61,11 @@ function App({ Component, pageProps }: AppProps) {
                 <NextHead>
                   <title>{defaultTitle}</title>                  
                   <meta name="description" content={defaultDescription} />
-                  <link rel="icon" type="image/png" sizes="32x32" href={favicon} />
+                  
+                  <link rel="icon" type="image/png" sizes="16x16" href="/mutual-favicon-32.png" />
+                  <link rel="icon" type="image/png" sizes="32x32" href="/mutual-favicon-32.png" />
+                  <link rel="icon" type="image/png" sizes="48x48" href="/mutual-favicon-32.png" />
+
                   <meta property="og:url" content={defaultOGURL} />
                   <meta property="og:title" content={defaultTitle} />
                   <meta property="og:description" content={defaultDescription} />
@@ -67,11 +76,6 @@ function App({ Component, pageProps }: AppProps) {
                   <meta property="og:image" content={defaultOGImage} />
                   <meta property="og:image:width" content="2058" />
                   <meta property="og:image:height" content="1080" />                
-
-
-
-
-
                 </NextHead>
                 <Header />
                 <Footer />

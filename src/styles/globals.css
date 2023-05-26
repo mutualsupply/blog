@@ -5,21 +5,21 @@
 
 @font-face {
     font-family: 'IBMPlexMono';
-    src: local(''), url('../public/fonts/ibm-plex-mono-3-cdnfonts/IBMPlexMono-Medium.ttf') format('woff');
+    src: local(''), url('/fonts/ibm-plex-mono-3-cdnfonts/IBMPlexMono-Medium.ttf') format('woff');
     font-weight: normal;
     font-size: normal;
 }
 
 @font-face {
     font-family: 'IBMPlexMonoRegular';
-    src: local(''), url('../public/fonts/ibm-plex-mono-3-cdnfonts/IBMPlexMono-Regular.ttf') format('woff');
+    src: local(''), url('/fonts/ibm-plex-mono-3-cdnfonts/IBMPlexMono-Regular.ttf') format('woff');
     font-weight: normal;
     font-size: normal;
 }
 
 @font-face {
   font-family: 'IBMPlexMonoLight';
-  src: local(''), url('../public/fonts/ibm-plex-mono-3-cdnfonts/IBMPlexMono-Light.ttf') format('woff');
+  src: local(''), url('/fonts/ibm-plex-mono-3-cdnfonts/IBMPlexMono-Light.ttf') format('woff');
   font-weight: normal;
   font-size: normal;
 }
