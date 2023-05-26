@@ -127,6 +127,8 @@ const ListingPage: NextPage = () => {
   const resolvedAuthor = useENSResolver({ address: author });
   const description = parsed && parsed[listingId]?.description;
 
+  console.log("descrition: ", description)
+
   const publicationDate = tokenCreated ? convertDate(tokenCreated) : "mm/dd/yy"
 
     const [mediaType, setMediaType] = useState(null);
@@ -172,6 +174,9 @@ const ListingPage: NextPage = () => {
             </a>
             &nbsp;{"– " + publicationDate}
           </div>
+          <div className="font-[helvetica] text-[14px] mt-[19px] mb-[60px] sm:mb-[19px] font-normal">
+              {description}
+            </div>             
           {ipfsPath && <MarkdownViewer ipfsPath={ipfsPath} />}
           <ListingInfo
             collectionAddress={process.env.NEXT_PUBLIC_AP_1155_CONTRACT}
@@ -229,6 +234,9 @@ const ListingPage: NextPage = () => {
                 </a>
                 &nbsp;{"– " + publicationDate}
               </div>
+              <div className="font-[helvetica] text-[14px] mt-[19px] mb-[60px] sm:mb-[19px] font-normal">
+                {description}
+              </div>              
               <div className="font-[helvetica] text-[14px] mt-[19px] mb-[60px] sm:mb-[19px] font-normal">
                 {description}
               </div>
