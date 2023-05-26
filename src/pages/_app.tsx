@@ -50,7 +50,7 @@ function App({ Component, pageProps }: AppProps) {
             <ENSResolverProvider>
               <LivepeerConfig client={livepeerClient}>
                 <NextHead>
-                  <title>seeknoevil</title>
+                  <title>mutual</title>
                   <link rel="icon" type="image/png" sizes="24x24" href={favicon} />
                 </NextHead>
                 <Header />
