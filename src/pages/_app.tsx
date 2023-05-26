@@ -45,8 +45,6 @@ const defaultOGURL = "blog.mutual.supply"
 const defaultOGImage = "/seo/mutual-blog-opengraph.png";
 const favicon = "/seo/mutual-favicon-32.png"
 
-// import mutualLogo from "../../public/icons/logo-mutual_blue.svg"
-
 function App({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
