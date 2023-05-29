@@ -19,7 +19,7 @@ const CreateForm = () => {
     toast(
       <div className="flex w-full items-center space-x-2 font-[helvetica]">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="10" cy="10" r="9.89691" fill="#5CF359" stroke="#52D325" stroke-width="0.206186"/>
+        <circle cx="10" cy="10" r="9.89691" fill="#5CF359" stroke="#52D325" strokeWidth="0.206186"/>
         <path d="M6.53483 8.68113L5.25781 10.103L8.8454 13.4327L14.8454 7.2277L13.6343 5.97925L8.8454 10.9544L6.53483 8.68113Z" fill="white"/>
         </svg>
         <div className="flex flex-row">
@@ -254,14 +254,14 @@ const CreateForm = () => {
         <svg fill="#fff" width="38" height="20" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
           <defs>
               <linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id="a">
-                  <stop stop-color="#fff" stop-opacity="0" offset="0%"/>
-                  <stop stop-color="#fff" stop-opacity=".631" offset="63.146%"/>
-                  <stop stop-color="#fff" offset="100%"/>
+                  <stop stopColor="#fff" stopOpacity="0" offset="0%"/>
+                  <stop stopColor="#fff" stopOpacity=".631" offset="63.146%"/>
+                  <stop stopColor="#fff" offset="100%"/>
               </linearGradient>
           </defs>
-          <g fill="none" fill-rule="evenodd">
+          <g fill="none" fillRule="evenodd">
               <g transform="translate(1 1)">
-                  <path d="M36 18c0-9.94-8.06-18-18-18" id="Oval-2" stroke="url(#a)" stroke-width="2">
+                  <path d="M36 18c0-9.94-8.06-18-18-18" id="Oval-2" stroke="url(#a)" strokeWidth="2">
                       <animateTransform
                           attributeName="transform"
                           type="rotate"
@@ -327,14 +327,14 @@ const CreateForm = () => {
                 <svg fill="#000000" width="76" height="40" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id="a">
-                            <stop stop-color="#000000" stop-opacity="0" offset="0%"/>
-                            <stop stop-color="#000000" stop-opacity=".631" offset="63.146%"/>
-                            <stop stop-color="#000000" offset="100%"/>
+                            <stop stopColor="#000000" stopOpacity="0" offset="0%"/>
+                            <stop stopColor="#000000" stopOpacity=".631" offset="63.146%"/>
+                            <stop stopColor="#000000" offset="100%"/>
                         </linearGradient>
                     </defs>
-                    <g fill="none" fill-rule="evenodd">
+                    <g fill="none" fillRule="evenodd">
                         <g transform="translate(1 1)">
-                            <path d="M36 18c0-9.94-8.06-18-18-18" id="Oval-2" stroke="url(#a)" stroke-width="2">
+                            <path d="M36 18c0-9.94-8.06-18-18-18" id="Oval-2" stroke="url(#a)" strokeWidth="2">
                                 <animateTransform
                                     attributeName="transform"
                                     type="rotate"

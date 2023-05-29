@@ -1,22 +1,19 @@
-// @ts-nocheck
-// import Image from "next/legacy/image";
 import Image from "next/image";
 import Link from 'next/link';
 
-export const Listing = ({index,  metadata, collection}: any) => {
+export const Listing = ({index, metadata, collection}: any) => {
 
-    const title = metadata && metadata?.title
-    const author = metadata && metadata?.contract.contractDeployer
+    // NOTE:
+    // Not currently in use but can acceess info about the listing in the metadata prop
+    // Ex: metadata?.title, metadata?.contract.contractDeployer
 
-    const convertDate = (date) => {
+    const convertDate = (date: string | number | Date) => {
         const dateObj = new Date(date)
-        const options = { month: 'long', day: 'numeric', year: 'numeric' };
+        const options: any = { month: 'long', day: 'numeric', year: 'numeric' };
         const formattedDate = dateObj.toLocaleDateString('en-US', options).toUpperCase()
         return formattedDate
     }        
     const publicationDate = metadata && convertDate(metadata?.timeLastUpdated)    
-
-    console.log("metadata", metadata)
 
     return (
         <>
@@ -24,20 +21,21 @@ export const Listing = ({index,  metadata, collection}: any) => {
             // TODO: maybe add a loading state instead here?
             <div></div>            
         ) : (
-            <div className="relative flex flex-col w-full text-[15px] border-b-[1px] border-[#96C4E4] pb-[12px]">
-                <div className="w-[352px] h-full sm:h-[465px] sm:w-full relative mb-[4px]">
-                    <Link href={`/${index}`}>
+            <div className=" flex flex-col w-full text-[15px] border-b-[1px] border-[#96C4E4]">
+                <div className="relative w-[352px] h-auto sm:h-[465px] sm:w-full mb-[16px]">
+                    <Link className="" href={`/${index}`}>
                         <Image
                             src={metadata?.media[0]?.gateway}
-                            fill
+                            height={465}
+                            width={826}
                             className="object-contain object-left"
-
+                            alt={`cover image for feed item ${index}: ${metadata?.title}`}
                         />
                     </Link>
                 </div>
-                <div className="pt-[2px] font-IBMPlexMonoLight text-[#646464] flex flex-row items-start flex-wrap w-full break-words">
+                <div className="font-IBMPlexMonoLight text-[#646464] flex flex-col items-start flex-wrap w-full break-words space-y-[8px] mb-[24px]">
                     <p className="font-IBMPlexMono text-[#0194FF]">{metadata?.title.toUpperCase()}</p>
-                    &nbsp;&nbsp;{publicationDate}
+                    <p className="font-IBMPlexMonoLight text-[#646464]">{publicationDate}</p> 
                 </div>  
             </div>
         )}
