@@ -11,7 +11,7 @@ export default function Feed() {
 
     return (
         <section id="main-feed" className='flex flex-row pl-[16px] pt-20 pb-14 min-h-[120vh] w-[352px] sm:w-full'>
-            <div className="grid grid-cols-1 gap-4 h-auto w-full">        
+            <div className="grid grid-cols-1 gap-4 h-fit w-full justify-start">        
                 {keys.slice().reverse().map((key) => (
                     <Listing
                         key={key}
