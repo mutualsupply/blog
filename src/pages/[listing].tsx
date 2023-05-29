@@ -66,17 +66,10 @@ const ListingPage: NextPage = () => {
     tokenId: tokenIdToMint,
   });
 
-  // function to refresh mint counts on successful mintExisting call
-  const refreshMintData = () => {
-    fetchNumMinted();
-    fetchTotalSupply();
-  };
-
   const { write, isLoading, isSuccess, mintExistingLoading } = useMintExisting({
     collection: collectionToMintFrom,
     tokenId: tokenIdToMint,
     userAddress: userAddress,
-    onSuccessCB: refreshMintData,
   });
 
   const handleMintInteraction = () => {
@@ -242,7 +235,7 @@ const ListingPage: NextPage = () => {
                   {collectButtonContent}
                 </button>
                 <div className="ml-[23px] text-black font-IBMPlexMono">
-                  {totalSupply}&nbsp;minted
+                  {tokenTotalSupply}&nbsp;minted
                 </div>
               </div>
             </div>
