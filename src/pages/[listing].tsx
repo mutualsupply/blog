@@ -153,7 +153,7 @@ const ListingPage: NextPage = () => {
           </div>             
           {ipfsPath && <MarkdownViewer ipfsPath={ipfsPath} />}
           <ListingInfo
-            collectionAddress={process.env.collectionToMintFrom}
+            collectionAddress={collectionToMintFrom}
             tokenId={tokenIdToMint}
           />
           <div className="w-full flex flex-row mt-[65px] items-center">
@@ -212,7 +212,7 @@ const ListingPage: NextPage = () => {
                 {description}
               </div>
               <ListingInfo
-                collectionAddress={process.env.collectionToMintFrom}
+                collectionAddress={collectionToMintFrom}
                 tokenId={tokenIdToMint}
               />
             </div>
