@@ -21,8 +21,8 @@ export const Listing = ({index, metadata, collection}: any) => {
             // TODO: maybe add a loading state instead here?
             <div></div>            
         ) : (
-            <div className=" flex flex-col w-full text-[15px] border-b-[1px] border-[#96C4E4] pb-[12px]">
-                <div className="relative w-[352px] h-auto sm:h-[465px] sm:w-full mb-[4px]">
+            <div className=" flex flex-col w-full text-[15px] border-b-[1px] border-[#96C4E4]">
+                <div className="relative w-[352px] h-auto sm:h-[465px] sm:w-full mb-[16px]">
                     <Link className="" href={`/${index}`}>
                         <Image
                             src={metadata?.media[0]?.gateway}
@@ -33,9 +33,9 @@ export const Listing = ({index, metadata, collection}: any) => {
                         />
                     </Link>
                 </div>
-                <div className="pt-[2px] font-IBMPlexMonoLight text-[#646464] flex flex-col sm:flex-row items-start flex-wrap w-full break-words">
+                <div className="font-IBMPlexMonoLight text-[#646464] flex flex-col items-start flex-wrap w-full break-words space-y-[8px] mb-[24px]">
                     <p className="font-IBMPlexMono text-[#0194FF]">{metadata?.title.toUpperCase()}</p>
-                    <p className="sm:ml-4 font-IBMPlexMonoLight text-[#646464]">{publicationDate}</p> 
+                    <p className="font-IBMPlexMonoLight text-[#646464]">{publicationDate}</p> 
                 </div>  
             </div>
         )}
