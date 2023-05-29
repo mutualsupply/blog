@@ -10,8 +10,7 @@ import useMintExisting from "../hooks/useMintExisting";
 import { useAuth } from "../hooks/useAuth";
 import { useModal } from "connectkit";
 import ListingInfo from "../components/mintSection/ListingInfo";
-import useNumMinted from "../hooks/useNumMinted";
-import useTotalSupply from "../hooks/useTotalSupply";
+import useMintStats from "../hooks/useMintStats";
 import VideoPlayerSimple from "../components/video/VideoPlayerSimple";
 import useENSResolver from "../hooks/useENSResolver";
 import useGetTokenCreator from "../hooks/useGetTokenCreator";
@@ -62,13 +61,8 @@ const ListingPage: NextPage = () => {
     tokenId: tokenIdToMint,
   });
 
-  const { numMinted, fetchNumMinted } = useNumMinted({
-    collectionAddress: process.env.NEXT_PUBLIC_AP_1155_CONTRACT,
-    tokenId: tokenIdToMint,
-  });
-
-  const { totalSupply, fetchTotalSupply } = useTotalSupply({
-    collectionAddress: process.env.NEXT_PUBLIC_AP_1155_CONTRACT,
+  const { userNumMinted, tokenTotalSupply } = useMintStats({
+    collectionAddress: collectionToMintFrom,
     tokenId: tokenIdToMint,
   });
 
@@ -94,7 +88,7 @@ const ListingPage: NextPage = () => {
   };
 
   const collectButtonContent =
-    numMinted > 0
+    userNumMinted > 0
       ? "Collected!"
       : isLoading || mintExistingLoading
       ? <SvgLoader />
@@ -103,7 +97,6 @@ const ListingPage: NextPage = () => {
       : "Collect – 0.00 ETH";
 
   const processIPFS = (ipfsPlain: string) => {
-    // let converted = "https://ipfs.io/ipfs/" + ipfsPlain.slice(7)
     let converted = "https://cloudflare-ipfs.com/ipfs/" + ipfsPlain.slice(7);
     return converted;
   };
@@ -119,7 +112,7 @@ const ListingPage: NextPage = () => {
 
   const publicationDate = tokenCreated ? convertDate(tokenCreated) : "mm/dd/yy"
 
-    const [mediaType, setMediaType] = useState(null);
+  const [mediaType, setMediaType] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -167,7 +160,7 @@ const ListingPage: NextPage = () => {
           </div>             
           {ipfsPath && <MarkdownViewer ipfsPath={ipfsPath} />}
           <ListingInfo
-            collectionAddress={process.env.NEXT_PUBLIC_AP_1155_CONTRACT}
+            collectionAddress={process.env.collectionToMintFrom}
             tokenId={tokenIdToMint}
           />
           <div className="w-full flex flex-row mt-[65px] items-center">
@@ -178,7 +171,7 @@ const ListingPage: NextPage = () => {
             */}
             <button
               disabled={
-                numMinted > 0 ||
+                userNumMinted > 0 ||
                 (isSuccess && !mintExistingLoading && !isLoading)
                   ? true
                   : false
@@ -191,7 +184,7 @@ const ListingPage: NextPage = () => {
               {collectButtonContent}
             </button>
             <div className="ml-[23px] text-black font-IBMPlexMono">
-              {totalSupply}&nbsp;minted
+              {tokenTotalSupply}&nbsp;minted
             </div>
           </div>
         </div>
@@ -226,7 +219,7 @@ const ListingPage: NextPage = () => {
                 {description}
               </div>
               <ListingInfo
-                collectionAddress={process.env.NEXT_PUBLIC_AP_1155_CONTRACT}
+                collectionAddress={process.env.collectionToMintFrom}
                 tokenId={tokenIdToMint}
               />
             </div>
@@ -234,7 +227,7 @@ const ListingPage: NextPage = () => {
               <div className="w-full flex flex-row items-center pt-[16px] mb-[19px]">
                 <button
                   disabled={
-                    numMinted > 0 ||
+                    userNumMinted > 0 ||
                     (isSuccess && !mintExistingLoading && !isLoading)
                       ? true
                       : false
